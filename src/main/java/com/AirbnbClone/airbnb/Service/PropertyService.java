@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PropertyService {
@@ -19,6 +18,7 @@ public class PropertyService {
     @Autowired
     private UserRepository userRepository;
 
+    //create a property
     public Property createProperty(Property property, Long userId){
         User owner = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("user not found!"));
